@@ -2,15 +2,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:  
-  name: nginx-deployment
+  name: nginx-green-deployment
   labels: 
     type: webserver
     author: intelliqit
 
 spec:  
-  replicas: 2
-  strategy:  
-    type: Recreate  
+  replicas: 1  
   selector:  
     matchLabels:  
       type: proxy
@@ -23,6 +21,6 @@ spec:
     spec: 
      containers: 
       - name: mynginx
-        image: nginx:1.24
+        image: nginx:1.25
 ...             
 
